@@ -28,15 +28,19 @@ const images = [
 
 const galleryList = document.querySelector('ul.gallery');
 
-images.slice(0,3).forEach((image) => {
-  const listItem = document.createElement('li');
-  const imgElement = document.createElement('img');
-  imgElement.src = image.url;
-  imgElement.alt = image.alt;
-  imgElement.width = 360;
-  imgElement.height = 300;
-  listItem.appendChild(imgElement);
-  galleryList.appendChild(listItem);
-});
+const imageEl = images.slice(0, 3).map(({ url, alt }) => `<li>
+    <img src="${url}" alt="${alt}"></li>`).join('');
 
-galleryList.classList.add('gallery');
+
+// images.slice(0,3).forEach((image) => {
+//   const listItem = document.createElement('li');
+//   const imgElement = document.createElement('img');
+//   imgElement.src = image.url;
+//   imgElement.alt = image.alt;
+//   imgElement.width = 360;
+//   imgElement.height = 300;
+//   listItem.appendChild(imgElement);
+//   galleryList.appendChild(listItem);
+// });
+
+galleryList.insertAdjacentHTML('beforeend', imageEl);

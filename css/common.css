@@ -27,7 +27,8 @@ ul {
 img {
   object-fit: cover;
   display: block;
-  max-width: 100%;
+  max-width: 360px;
+  height: 300px;
 }
 
 .login-form {
